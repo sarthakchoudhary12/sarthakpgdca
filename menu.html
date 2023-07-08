@@ -2,38 +2,7 @@
 <html>
 <head>
     <title>Menu Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-        }
-
-        .menu-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            grid-gap: 20px;
-            margin: 20px;
-        }
-
-        .menu-card {
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            padding: 20px;
-            background-color: #f9f9f9;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
-
-        .menu-card h3 {
-            margin-top: 0;
-            font-size: 20px;
-            color: #333;
-        }
-
-        .menu-card p {
-            margin: 10px 0;
-            font-size: 16px;
-            color: #666;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
     <h1>Menu</h1>
@@ -41,7 +10,7 @@
 
     <script>
         // Fetch menu data from the Flask server
-        fetch('http://localhost:5000/menu')
+        fetch('http://192.168.1.4:5000/menu')
             .then(response => response.json())
             .then(data => {
                 // Create menu cards dynamically
