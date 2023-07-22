@@ -24,7 +24,7 @@ document.querySelector('.login').addEventListener('submit', function(event) {
             // Form submitted successfully
             alert('Form submitted successfully!');
             form.reset(); // Clear form fields
-            return response.text();
+            return response.text(); 
           
         } else {
             // Error occurred while submitting the form

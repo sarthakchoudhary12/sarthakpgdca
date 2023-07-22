@@ -6,6 +6,9 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     var email = form.elements.email.value;
     var phone = form.elements.phone.value;
     var restName = "Bhagsu"
+    // Get the parameter value and update the label text
+    var paramValue = getQueryParamValue('name');
+	document.getElementById('restaurantLabel').innerHTML=paramValue;
 
     // Create an object to hold the form data
     var formData = {
@@ -27,11 +30,14 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         if (response.ok) {
             alert('Message sent successfully!' + response);
             form.reset(); // Clear form fields
-            console.log(response.text())
-          // window.location.href = 'menu.html';
+            return response.json();
+           // console.log(response.json())
         } else {
             alert('Error sending message.');
         }
+    }).then(data=>{
+        localStorage.setItem("menuData",JSON.stringify(data));
+         window.location.href = 'menu.html';
     })
     .catch(function(error) {
         alert('An error occurred. Please try again later.');
@@ -42,7 +48,25 @@ document.getElementById('contact-form').addEventListener('submit', function(even
 function getQueryParamValue(key) {
     var urlParams = new URLSearchParams(window.location.search);
     return urlParams.get(key);
-    }
-    // Get the parameter value and update the label text
-    var paramValue = getQueryParamValue('name');
-	document.getElementById('restaurantLabel').innerHTML=paramValue;
+}
+
+function createMenuCard(item) {
+    const card = document.createElement('div');
+    card.classList.add('menu-card');
+    card.innerHTML = `
+        <h3>${item.name}</h3>
+        <p>Price: $${item.price.toFixed(2)}</p>
+        <p>${item.description}</p>
+    `;
+    return card;
+  }
+
+  // Retrieve the JSON data from local storage
+  var menuData = JSON.parse(localStorage.getItem('menuData'));
+
+  // Create cards based on the data
+  menuData.forEach(function(item) {
+    var card = createMenuCard(item);
+    // Append the card to the container element on your page
+    document.getElementById('menu-container').appendChild(card);
+  });
