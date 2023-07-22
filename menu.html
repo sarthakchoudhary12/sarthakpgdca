@@ -7,35 +7,13 @@
 <body>
     <h1>Menu</h1>
     <div class="menu-container" id="menu-container"></div>
-
-    <!-- <script>
-        // Fetch menu data from the Flask server
-        fetch('http://192.168.1.4:5000/menu')
-            .then(response => response.json())
-            .then(data => {
-                // Create menu cards dynamically
-                const menuContainer = document.getElementById('menu-container');
-                data.forEach(item => {
-                    const card = createMenuCard(item);
-                    menuContainer.appendChild(card);
-                });
-            })
-            .catch(error => {
-                console.error('Error:', error);
-            });
-
-        // Function to create a menu card element
-        function createMenuCard(item) {
-            const card = document.createElement('div');
-            card.classList.add('menu-card');
-            card.innerHTML = `
-                <h3>${item.name}</h3>
-                <p>Price: $${item.price.toFixed(2)}</p>
-                <p>${item.description}</p>
-            `;
-            return card;
-        }
-    </script> -->
+    <div id="cart">
+        <h2>Cart</h2>
+        <div id="cart-items">
+            <!-- Cart items will be added here dynamically -->
+        </div>
+        <button id="submit-button">Submit</button>
+    </div>
 </body>
-<script src="script.js"></script>
+<script src="menuScript.js"></script>
 </html>

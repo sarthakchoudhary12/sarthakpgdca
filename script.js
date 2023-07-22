@@ -1,3 +1,19 @@
+window.onload= function(){
+    const queryString = window.location.search;
+
+        // Create a new URLSearchParams object to parse the query string
+        const urlParams = new URLSearchParams(queryString);
+
+        // Get the value of the 'name' parameter
+        const nameParam = urlParams.get('name');
+
+        // Display the value in the console
+        console.log('Name parameter:', nameParam);
+		document.getElementById('restaurantLabel').innerHTML=nameParam;
+    	
+
+}
+
 document.getElementById('contact-form').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent form submission
 
@@ -5,10 +21,9 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     var name = form.elements.txt.value;
     var email = form.elements.email.value;
     var phone = form.elements.phone.value;
-    var restName = "Bhagsu"
+    var restName= document.getElementById('restaurantLabel').innerHTML
     // Get the parameter value and update the label text
-    var paramValue = getQueryParamValue('name');
-	document.getElementById('restaurantLabel').innerHTML=paramValue;
+    
 
     // Create an object to hold the form data
     var formData = {
@@ -19,7 +34,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     };
 
     // Send the form data to the server
-    fetch('http://192.168.1.4:5000/send-message', {
+    fetch('http://172.20.10.10:5000/send-message', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -44,29 +59,5 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         console.error(error);
     });
 });
-     // Retrieve the value from the query parameter
-function getQueryParamValue(key) {
-    var urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get(key);
-}
 
-function createMenuCard(item) {
-    const card = document.createElement('div');
-    card.classList.add('menu-card');
-    card.innerHTML = `
-        <h3>${item.name}</h3>
-        <p>Price: $${item.price.toFixed(2)}</p>
-        <p>${item.description}</p>
-    `;
-    return card;
-  }
 
-  // Retrieve the JSON data from local storage
-  var menuData = JSON.parse(localStorage.getItem('menuData'));
-
-  // Create cards based on the data
-  menuData.forEach(function(item) {
-    var card = createMenuCard(item);
-    // Append the card to the container element on your page
-    document.getElementById('menu-container').appendChild(card);
-  });

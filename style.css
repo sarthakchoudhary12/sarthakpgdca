@@ -48,7 +48,7 @@ input{
 	border-radius: 5px;
 }
 button{
-	width: 60%;
+	width: fit-content;
 	height: 40px;
 	margin: 10px auto;
 	justify-content: center;
@@ -110,7 +110,7 @@ h1 {
 }
 
 .menu-container {
-    display: grid;
+    display: flex;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
     margin: 20px;
@@ -129,48 +129,89 @@ h1 {
     transform: scale(1.05);
 }
 
-.menu-card h3 {
+.menu-card h2 {
     margin-top: 0;
-    font-size: 20px;
+    font-size: 40px;
+	text-align: center;
 
-.menu-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 20px;
-    margin: 20px;
+	.menu-card:hover {
+		transform: scale(1.05);
+	}
+
+	.menu-card h3 {
+		margin-top: 0;
+		font-size: 20px;
+		color: #333;
+		text-align: center;
+		margin-bottom: 10px;
+		font-weight: 500;
+	}
+
+	.menu-card p {
+		margin: 0;
+		font-size: 16px;
+		color: #666;
+		text-align: center;
+	}
+
+	.menu-card .price {
+		font-weight: bold;
+		color: #ff6347;
+	}
+	.add-to-cart {
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 5px 10px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+	.add-to-cart:hover {
+		background-color: #45a049;
+	}	
 }
-
-.menu-card {
+img {
+	border-radius: 8px;
+	height: 140px;
+	width: 140px;
+	margin-top: 10px;
+}
+.cart {
+    margin-top: 30px;
     border: 1px solid #ccc;
-    border-radius: 10px;
-    padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    padding: 10px;
 }
 
-.menu-card:hover {
-    transform: scale(1.05);
-}
-
-.menu-card h3 {
-    margin-top: 0;
-    font-size: 20px;
-    color: #333;
-    text-align: center;
-    margin-bottom: 10px;
-    font-weight: 500;
-}
-
-.menu-card p {
-    margin: 0;
-    font-size: 16px;
-    color: #666;
+.cart h2 {
     text-align: center;
 }
 
-.menu-card .price {
-    font-weight: bold;
-    color: #ff6347;
+.cart-item {
+    padding: 5px;
+    border-bottom: 1px solid #ccc;
 }
+
+.submit-button {
+    margin-top: 10px;
+	width: 140px;
+    padding: 8px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.submit-button:hover {
+    background-color: #0056b3;
+}	
+
+#cart {
+    margin-top: 30px;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+#cart h2 {
+    text-align: center;
 }
