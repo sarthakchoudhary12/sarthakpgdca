@@ -34,7 +34,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     };
 
     // Send the form data to the server
-    fetch('http://172.20.10.10:5000/send-message', {
+    fetch('http://192.168.1.2:5000/send-message', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -45,6 +45,8 @@ document.getElementById('contact-form').addEventListener('submit', function(even
         if (response.ok) {
             alert('Message sent successfully!' + response);
             form.reset(); // Clear form fields
+            document.cookie = `name=${name}; path=/`;
+            document.cookie = `email=${email}; path=/`;
             return response.json();
            // console.log(response.json())
         } else {

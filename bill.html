@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Receipt</title>
+    <link rel="stylesheet" href="billPage.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Receipt</h1>
+        <div class="receipt" id="receipt">
+            <!-- Receipt items will be dynamically added here -->
+        </div>
+        <a class="download-button" href="#" onclick="downloadReceipt()">Download Receipt</a>
+    </div>
+
+    <!-- Include the html2pdf.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+    <script src="downloadBill.js"></script>
+</body>
+</html>

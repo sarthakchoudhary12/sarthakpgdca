@@ -1,0 +1,64 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+  }
+  
+  /* CSS for the receipt header */
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+  }
+  
+  /* CSS for the receipt container */
+  .receipt {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  /* CSS for each receipt item */
+  .receipt-item {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+  }
+  
+  /* CSS for receipt item details */
+  .receipt-item p {
+    margin: 5px 0;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .receipt-item p.item-name {
+    font-weight: bold;
+  }
+  
+  .receipt-item p.item-price {
+    color: #007bff;
+  }
+  
+  /* Additional styling for the receipt item details */
+  .receipt-item p.item-details {
+    font-style: italic;
+    color: #666;
+  }
+  
+  /* CSS for the download button */
+  .download-button {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+  }
+  
+  .download-button:hover {
+    background-color: #0056b3;
+  }

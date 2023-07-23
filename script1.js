@@ -12,7 +12,7 @@ document.querySelector('.login').addEventListener('submit', function(event) {
     };
 
     // Send the form data to the server
-    fetch('http://172.20.10.10:5000/login', {
+    fetch('http://192.168.1.2:5000/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

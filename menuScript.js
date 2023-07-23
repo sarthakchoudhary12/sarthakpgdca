@@ -84,21 +84,42 @@ function updateCartMenu() {
             `;
             cartItemsContainer.appendChild(cartItem);
         }
+        const cartData = JSON.stringify(uniqueCartItems.map(itemId => ({ id: itemId.id, count: itemCount[itemId.id] })));
+        const expirationDate = new Date();
+        expirationDate.setDate(expirationDate.getDate() + 1); // 1 day expiration
+        document.cookie = `cartData=${encodeURIComponent(cartData)}; expires=${expirationDate.toUTCString()}; path=/`;
     });
 }
+// Function to read cookies and get the value by name
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+// Read the saved name and email from the cookies
+const savedName = getCookie('name');
+const savedEmail = getCookie('email');
+
+console.log(savedEmail);
+console.log(savedName)
 
 document.getElementById('submit-button').addEventListener('click', function(event){
-    fetch('http://172.20.10.10:5000/get-bill', {
+    fetch('http://192.168.1.2:5000/get-bill', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
-            itemCount: itemCount
+            itemCount: itemCount,
+            email:savedEmail,
+            name:savedName
         })
     })
     .then(response => response.json())
     .then(data => {
+        localStorage.setItem("billInfo",JSON.stringify(data));
+         window.location.href = 'bill.html';
         // Handle the response from the server if needed
         console.log('Server response:', data);
     })
@@ -107,3 +128,4 @@ document.getElementById('submit-button').addEventListener('click', function(even
         console.error('Error:', error);
     });
 });
+
