@@ -79,7 +79,7 @@ function updateCartMenu() {
             cartItem.classList.add('cart-item');
             cartItem.innerHTML = `
                 <p>${selectedItem.name}</p>
-                <p>Price: $${selectedItem.price.toFixed(2)}</p>
+                <p>Price: Rs ${selectedItem.price.toFixed(2)}</p>
                 <p>Quantity: ${count}</p>
             `;
             cartItemsContainer.appendChild(cartItem);
@@ -105,7 +105,7 @@ console.log(savedEmail);
 console.log(savedName)
 
 document.getElementById('submit-button').addEventListener('click', function(event){
-    fetch('http://192.168.1.2:5000/get-bill', {
+    fetch('http://localhost:5000/get-bill', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'

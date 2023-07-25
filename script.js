@@ -34,7 +34,7 @@ document.getElementById('contact-form').addEventListener('submit', function(even
     };
 
     // Send the form data to the server
-    fetch('http://192.168.1.2:5000/send-message', {
+    fetch('http://localhost:5000/send-message', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
